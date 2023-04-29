@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "783719047708",
+    "project_id": "beastalert-9e433",
+    "storage_bucket": "beastalert-9e433.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783719047708:android:28d88bdbd7f295e46db5d9",
+        "android_client_info": {
+          "package_name": "com.example.beastalert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783719047708-uuo0tp9q2mlq5k2trbeeu44cv4rjo11l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9Cc_FS3-XHq5X2DtgNQwKlHWcv84D0bs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783719047708-uuo0tp9q2mlq5k2trbeeu44cv4rjo11l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
