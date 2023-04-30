@@ -1,5 +1,4 @@
 package com.example.beastalert;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -23,9 +22,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.w3c.dom.Text;
-
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
     ArrayAdapter locs;
     LinearLayout threat_screen;
     String loc;
@@ -51,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //        warns.setBackgroundColor(Color.parseColor("#000000"));
 //        threat_screen.addView(warns);
         threatScreen.addView(threat_screen);
-
+//        threat_screen
 
         String[] all_locs = {"Gurgaon","sector-12", "sector-14"};
         Spinner loc_select = findViewById(R.id.Loc);

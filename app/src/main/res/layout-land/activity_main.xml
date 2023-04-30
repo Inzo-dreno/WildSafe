@@ -27,7 +27,8 @@
         android:layout_height="166dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@android:drawable/ic_menu_always_landscape_portrait"
-        tools:layout_editor_absoluteX="824dp" />
+        tools:layout_editor_absoluteX="232dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
