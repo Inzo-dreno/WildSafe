@@ -78,7 +78,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 if(loc.equals(document.getData().get("Area").toString())) {
                                     LinearLayout main = new LinearLayout(MainActivity.this);
-                                    String name = document.getData().get("Animal").toString() + ".png";
+                                    main.setOrientation(main.HORIZONTAL);
+                                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams. MATCH_PARENT ,  LinearLayout.LayoutParams. WRAP_CONTENT ) ;
+                                    layoutParams.setMargins( 30 , 20 , 30 , 10 ) ;
                                     main.setBackgroundResource(R.drawable.rounf);
                                     ViewGroup.MarginLayoutParams bottomSpace = (ViewGroup.MarginLayoutParams) main.getLayoutParams();
                                     bottomSpace.bottomMargin = 100;
@@ -88,8 +90,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     img.setPadding(10,10,10,10);
                                     TextView elt = new TextView(MainActivity.this);
                                     elt.setText(document.getData().get("Animal").toString());
-                                    main.addView(img);
-                                    main.addView(elt);
+                                    main.addView(img, layoutParams);
+                                    main.addView(elt,layoutParams);
                                     threat_screen.addView(main);
                                 }else{
                                     Toast.makeText(getApplicationContext(),document.getData().toString(),Toast.LENGTH_LONG).show();
