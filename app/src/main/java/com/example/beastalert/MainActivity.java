@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,6 +24,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    DisplayMetrics window = new DisplayMetrics();
     ArrayAdapter locs;
     LinearLayout threat_screen;
     String loc;
@@ -56,10 +58,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         loc_select.setAdapter(locs);
         loc_select.setOnItemSelectedListener(this);
         loc_select.setSelected(true);
-
+        getWindowManager().getDefaultDisplay().getMetrics(window);
     }
-
+    int width = window.widthPixels;
+    int height = window.heightPixels;
     public void reiterateData(){
+        width = window.widthPixels;
+        height = window.heightPixels;
         threat_screen.removeAllViews();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("Detected Dangerous Animal")
@@ -70,9 +75,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 if(loc.equals(document.getData().get("Area").toString())) {
+                                    LinearLayout main = new LinearLayout(MainActivity.this);
+                                    main.setBackgroundResource(R.drawable.rounf);
                                     TextView elt = new TextView(MainActivity.this);
                                     elt.setText(document.getData().get("Animal").toString());
-                                    threat_screen.addView(elt);
+                                    main.addView(elt);
+                                    threat_screen.addView(main);
                                 }else{
                                     Toast.makeText(getApplicationContext(),document.getData().toString(),Toast.LENGTH_LONG).show();
                                 }
