@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 if(loc.equals(document.getData().get("Area").toString())) {
                                     LinearLayout main = new LinearLayout(MainActivity.this);
+                                    String name = document.getData().get("Animal").toString() + ".png";
                                     main.setBackgroundResource(R.drawable.rounf);
                                     TextView elt = new TextView(MainActivity.this);
                                     elt.setText(document.getData().get("Animal").toString());
