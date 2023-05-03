@@ -77,6 +77,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 if(loc.equals(document.getData().get("Area").toString())) {
+
+                                    LinearLayout.LayoutParams ll = new LinearLayout.LayoutParams(
+                                            LinearLayout.LayoutParams. MATCH_PARENT ,
+                                            LinearLayout.LayoutParams. WRAP_CONTENT ) ;
+                                    ll.setMargins( 30 , 20 , 30 , 10 ) ;
+
+
+
+
                                     LinearLayout main = new LinearLayout(MainActivity.this);
                                     main.setOrientation(main.HORIZONTAL);
                                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams. WRAP_CONTENT ,  LinearLayout.LayoutParams. WRAP_CONTENT ) ;
@@ -86,11 +95,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     ImageView img = new ImageView(MainActivity.this);
                                     img.setImageResource(R.drawable.lion);
                                     img.setPadding(10,10,10,10);
-                                    TextView elt = new TextView(MainActivity.this);
-                                    elt.setText(document.getData().get("Animal").toString());
                                     main.addView(img, layoutParams);
-                                    main.addView(elt,layoutParams);
-                                    threat_screen.addView(main, layoutParams);
+
+                                    TextView name = new TextView(MainActivity.this);
+                                    name.setText("Name : " + document.getData().get("Animal").toString());
+                                    main.addView(name,layoutParams);
+
+
+                                    TextView assurity = new TextView(MainActivity.this);
+                                    assurity.setText("Assurity : " + document.getData().get("Assurity").toString());
+                                    main.addView(assurity,layoutParams);
+
+                                    threat_screen.addView(main, ll);
                                 }else{
                                     Toast.makeText(getApplicationContext(),document.getData().toString(),Toast.LENGTH_LONG).show();
                                 }
