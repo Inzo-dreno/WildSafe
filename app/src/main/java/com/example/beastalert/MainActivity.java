@@ -3,8 +3,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -78,8 +80,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     LinearLayout main = new LinearLayout(MainActivity.this);
                                     String name = document.getData().get("Animal").toString() + ".png";
                                     main.setBackgroundResource(R.drawable.rounf);
+                                    ViewGroup.MarginLayoutParams bottomSpace = (ViewGroup.MarginLayoutParams) main.getLayoutParams();
+                                    bottomSpace.bottomMargin = 100;
+                                    main.setLayoutParams(bottomSpace);
+                                    ImageView img = new ImageView(MainActivity.this);
+                                    img.setImageResource(R.drawable.lion);
+                                    img.setPadding(10,10,10,10);
                                     TextView elt = new TextView(MainActivity.this);
                                     elt.setText(document.getData().get("Animal").toString());
+                                    main.addView(img);
                                     main.addView(elt);
                                     threat_screen.addView(main);
                                 }else{
