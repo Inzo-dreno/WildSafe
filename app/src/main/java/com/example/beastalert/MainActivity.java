@@ -79,12 +79,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                 if(loc.equals(document.getData().get("Area").toString())) {
                                     LinearLayout main = new LinearLayout(MainActivity.this);
                                     main.setOrientation(main.HORIZONTAL);
-                                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams. MATCH_PARENT ,  LinearLayout.LayoutParams. WRAP_CONTENT ) ;
+                                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams. WRAP_CONTENT ,  LinearLayout.LayoutParams. WRAP_CONTENT ) ;
                                     layoutParams.setMargins( 30 , 20 , 30 , 10 ) ;
                                     main.setBackgroundResource(R.drawable.rounf);
-                                    ViewGroup.MarginLayoutParams bottomSpace = (ViewGroup.MarginLayoutParams) main.getLayoutParams();
-                                    bottomSpace.bottomMargin = 100;
-                                    main.setLayoutParams(bottomSpace);
+
                                     ImageView img = new ImageView(MainActivity.this);
                                     img.setImageResource(R.drawable.lion);
                                     img.setPadding(10,10,10,10);
@@ -92,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     elt.setText(document.getData().get("Animal").toString());
                                     main.addView(img, layoutParams);
                                     main.addView(elt,layoutParams);
-                                    threat_screen.addView(main);
+                                    threat_screen.addView(main, layoutParams);
                                 }else{
                                     Toast.makeText(getApplicationContext(),document.getData().toString(),Toast.LENGTH_LONG).show();
                                 }
