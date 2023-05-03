@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     main.addView(name,layoutParams);
 
 
+
                                     TextView assurity = new TextView(MainActivity.this);
                                     assurity.setText("Assurity : " + document.getData().get("Assurity").toString());
                                     main.addView(assurity,layoutParams);
