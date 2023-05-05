@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ArrayAdapter locs;
     LinearLayout threat_screen;
     String loc;
+    ScrollView threatScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int height = displayMetrics.heightPixels;
         int width = displayMetrics.widthPixels;
-        ScrollView threatScreen = findViewById(R.id.AllThreats);
+
+        threatScreen = findViewById(R.id.AllThreats);
         threatScreen.setMinimumHeight((int)(height / 2.0f));
 
 
@@ -67,6 +69,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void reiterateData(){
         width = window.widthPixels;
         height = window.heightPixels;
+        LinearLayout.LayoutParams la = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,width/10) ;
+        la.setMargins( 30 , 20 , 30 , 10 ) ;
+
+        threatScreen.setMinimumHeight(height);
         threat_screen.removeAllViews();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("Detected Dangerous Animal")
