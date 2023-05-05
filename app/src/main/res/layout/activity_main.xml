@@ -32,8 +32,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_weight="1"
+                android:contentDescription="@string/logo"
                 android:foregroundGravity="right"
-                app:srcCompat="@drawable/lion" />
+                app:srcCompat="@drawable/lion"
+                tools:ignore="NestedWeights,RtlHardcoded" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -43,8 +45,9 @@
                 android:layout_weight="1"
                 android:foregroundGravity="center"
                 android:gravity="left"
-                android:text="TextView"
-                android:textColor="@color/white" />
+                android:text="@string/beast_n_alert"
+                android:textColor="@color/white"
+                tools:ignore="RtlHardcoded" />
 
         </LinearLayout>
 
@@ -55,7 +58,7 @@
             android:layout_weight="0.1"
             android:foregroundGravity="center"
             android:gravity="center"
-            android:text="Beast Alert provides realtime alerts about wild animals in your proximity\nso you can stay safe and secure"
+            android:text="@string/description"
             android:textAlignment="center"
             android:textColor="#CACACA" />
 
@@ -66,11 +69,23 @@
             android:layout_weight="0.1"
             android:background="#DEDEDE" />
 
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:text="@string/threats"
+            android:textAlignment="center"
+            android:textColor="#9E9E9E"
+            android:textSize="34sp" />
+
         <ScrollView
             android:id="@+id/AllThreats"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.7" />
+            android:layout_weight="0.6"
+            android:contentDescription="@string/allthreats" />
 
     </LinearLayout>
 
