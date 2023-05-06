@@ -20,9 +20,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="gone"
         tools:layout_editor_absoluteX="10dp"
         tools:layout_editor_absoluteY="10dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -59,18 +63,23 @@
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.01" />
+            android:layout_weight="0.05" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
+            android:layout_weight="0.2"
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="@string/description"
             android:textAlignment="center"
             android:textColor="#CACACA" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05" />
 
         <Spinner
             android:id="@+id/Loc"
@@ -132,6 +141,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:visibility="gone"
         tools:layout_editor_absoluteX="10dp"
         tools:layout_editor_absoluteY="10dp">
 
@@ -191,13 +201,13 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25" />
+            android:layout_weight="0.2" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
+            android:layout_weight="0.2"
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="@string/description"
@@ -207,7 +217,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25" />
+            android:layout_weight="0.2" />
 
         <LinearLayout
             android:layout_width="match_parent"
