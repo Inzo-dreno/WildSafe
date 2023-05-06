@@ -132,9 +132,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="gone"
         tools:layout_editor_absoluteX="10dp"
         tools:layout_editor_absoluteY="10dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -171,25 +175,7 @@
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.01" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:foregroundGravity="center"
-            android:gravity="center"
-            android:text="@string/description"
-            android:textAlignment="center"
-            android:textColor="#CACACA" />
-
-        <Spinner
-            android:id="@+id/Loc"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:background="#DEDEDE" />
+            android:layout_weight="0.1" />
 
         <TextView
             android:id="@+id/textView11"
@@ -202,12 +188,26 @@
             android:textColor="#9E9E9E"
             android:textSize="34sp" />
 
-        <ScrollView
-            android:id="@+id/AllThreats"
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25" />
+
+        <TextView
+            android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:contentDescription="@string/allthreats" />
+            android:layout_weight="0.1"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="@string/description"
+            android:textAlignment="center"
+            android:textColor="#CACACA" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -244,6 +244,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:visibility="gone"
         tools:layout_editor_absoluteX="10dp"
         tools:layout_editor_absoluteY="10dp">
 
