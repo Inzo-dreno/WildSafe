@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -36,6 +37,76 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        LinearLayout homePage = findViewById(R.id.homePage);
+        homePage.setVisibility(View.VISIBLE);
+        LinearLayout aboutPage = findViewById(R.id.aboutPage);
+        aboutPage.setVisibility(View.GONE);
+        LinearLayout contactPage = findViewById(R.id.contactPage);
+        contactPage.setVisibility(View.GONE);
+
+
+        Button hta = findViewById(R.id.hta);
+        hta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homePage.setVisibility(View.GONE);
+                aboutPage.setVisibility(View.VISIBLE);
+
+            }
+        });
+        Button htc = findViewById(R.id.htc);
+        htc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homePage.setVisibility(View.GONE);
+                contactPage.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        Button ath = findViewById(R.id.ath);
+        ath.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aboutPage.setVisibility(View.GONE);
+                homePage.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+
+
+        Button atc = findViewById(R.id.atc);
+        atc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aboutPage.setVisibility(View.GONE);
+                contactPage.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        Button cta = findViewById(R.id.cta);
+        cta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contactPage.setVisibility(View.GONE);
+                aboutPage.setVisibility(View.VISIBLE);
+
+            }
+        });
+        Button cth = findViewById(R.id.cth);
+        cth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contactPage.setVisibility(View.GONE);
+                homePage.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+
+
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -54,7 +125,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //        warns.setBackgroundColor(Color.parseColor("#000000"));
 //        threat_screen.addView(warns);
         threatScreen.addView(threat_screen);
-//        threat_screen
 
         String[] all_locs = {"Gurgaon","sector-12", "sector-14"};
         Spinner loc_select = findViewById(R.id.Loc);
