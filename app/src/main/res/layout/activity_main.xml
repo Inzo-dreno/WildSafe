@@ -20,24 +20,38 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="10dp">
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="-60dp">
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="682dp"
+            android:layout_height="534dp"
             android:layout_marginBottom="100dp"
             app:srcCompat="@drawable/team" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Search"
+            android:layout_height="42dp"
             app:icon="@drawable/search_btn"
             tools:layout_editor_absoluteX="-196dp"
             tools:layout_editor_absoluteY="544dp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:icon="@drawable/location_btn" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:icon="@drawable/report_btn" />
+
     </LinearLayout>
 
     <LinearLayout
