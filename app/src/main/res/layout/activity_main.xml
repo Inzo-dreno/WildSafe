@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="0.1"
-    android:background="@drawable/whatsapp_image_2023_04_27_at_19_34_59"
+    android:background="@drawable/background"
     android:orientation="vertical"
     android:padding="10dp"
     android:textAlignment="viewStart"
@@ -16,12 +16,41 @@
 
 
     <LinearLayout
-        android:id="@+id/hon=me"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:visibility="visible"
         tools:layout_editor_absoluteX="10dp"
         tools:layout_editor_absoluteY="10dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="682dp"
+            android:layout_marginBottom="100dp"
+            app:srcCompat="@drawable/team" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            app:icon="@drawable/search_btn"
+            tools:layout_editor_absoluteX="-196dp"
+            tools:layout_editor_absoluteY="544dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hon=me"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/aboutPage"
+        app:layout_constraintEnd_toStartOf="@+id/aboutPage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/aboutPage">
 
         <Space
             android:layout_width="match_parent"
@@ -138,12 +167,14 @@
 
     <LinearLayout
         android:id="@+id/aboutPage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:visibility="gone"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="10dp">
+        app:layout_constraintBottom_toTopOf="@+id/contactPage"
+        app:layout_constraintEnd_toStartOf="@+id/contactPage"
+        app:layout_constraintStart_toEndOf="@+id/hon=me"
+        app:layout_constraintTop_toTopOf="@+id/contactPage">
 
         <Space
             android:layout_width="match_parent"
@@ -251,12 +282,15 @@
 
     <LinearLayout
         android:id="@+id/contactPage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="4dp"
         android:orientation="vertical"
         android:visibility="gone"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="10dp">
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/aboutPage"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/linearLayout"
