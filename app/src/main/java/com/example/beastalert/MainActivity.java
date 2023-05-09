@@ -32,16 +32,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     LinearLayout threat_screen;
     String loc;
     ScrollView threatScreen;
+    LinearLayout homePage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        LinearLayout homePage = findViewById(R.id.homePage);
+        homePage = findViewById(R.id.homePage);
         homePage.setVisibility(View.VISIBLE);
-        LinearLayout aboutPage = findViewById(R.id.aboutPage);
+        LinearLayout aboutPage;
+        aboutPage = findViewById(R.id.aboutPage);
         aboutPage.setVisibility(View.GONE);
-        LinearLayout contactPage = findViewById(R.id.contactPage);
+        LinearLayout contactPage;
+        contactPage = findViewById(R.id.contactPage);
         contactPage.setVisibility(View.GONE);
 
 
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         hta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.background);
                 homePage.setVisibility(View.GONE);
                 aboutPage.setVisibility(View.VISIBLE);
 
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         htc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.background);
                 homePage.setVisibility(View.GONE);
                 contactPage.setVisibility(View.VISIBLE);
 
@@ -68,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ath.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.background);
+                reiterateData();
                 aboutPage.setVisibility(View.GONE);
                 homePage.setVisibility(View.VISIBLE);
 
@@ -80,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         atc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.background);
                 aboutPage.setVisibility(View.GONE);
                 contactPage.setVisibility(View.VISIBLE);
 
@@ -90,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         cta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.background);
                 contactPage.setVisibility(View.GONE);
                 aboutPage.setVisibility(View.VISIBLE);
 
@@ -99,7 +108,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         cth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.background);
                 contactPage.setVisibility(View.GONE);
+                reiterateData();
                 homePage.setVisibility(View.VISIBLE);
 
             }
@@ -136,7 +147,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
     int width = window.widthPixels;
     int height = window.heightPixels;
+
     public void reiterateData(){
+
         width = window.widthPixels;
         height = window.heightPixels;
         LinearLayout.LayoutParams la = new LinearLayout.LayoutParams(
@@ -152,9 +165,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+                            int total_docs_for_location = 0;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 if(loc.equals(document.getData().get("Area").toString())) {
-
+                                    total_docs_for_location += 1;
                                     LinearLayout.LayoutParams ll = new LinearLayout.LayoutParams(
                                             LinearLayout.LayoutParams. MATCH_PARENT ,
                                             LinearLayout.LayoutParams. WRAP_CONTENT ) ;
@@ -186,8 +200,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                                     threat_screen.addView(main, ll);
                                 }else{
-                                    Toast.makeText(getApplicationContext(),document.getData().toString(),Toast.LENGTH_LONG).show();
+                                    //Toast.makeText(getApplicationContext(),document.getData().toString(),Toast.LENGTH_LONG).show();
                                 }
+                            }
+                            if(total_docs_for_location < 1){
+                                findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.safebg);
+                            }else{
+                                findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.dangerbg);
                             }
                         } else {
                             Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_LONG).show();
@@ -198,7 +217,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//        Toast.makeText(getApplicationContext(),locs.getItem(position).toString(),Toast.LENGTH_LONG).show();
         loc = locs.getItem(position).toString();
         reiterateData();
 
