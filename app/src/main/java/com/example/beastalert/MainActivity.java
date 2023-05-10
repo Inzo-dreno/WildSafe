@@ -205,8 +205,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             }
                             if(total_docs_for_location < 1){
                                 findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.safebg);
+                                TextView stat = findViewById(R.id.status);
+                                stat.setText("You Are Safe");
                             }else{
                                 findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.dangerbg);
+                                TextView stat = findViewById(R.id.status);
+                                stat.setText("Danger Nearby");
                             }
                         } else {
                             Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_LONG).show();
