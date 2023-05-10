@@ -181,22 +181,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     main.setOrientation(main.HORIZONTAL);
                                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams. WRAP_CONTENT ,  LinearLayout.LayoutParams. WRAP_CONTENT ) ;
                                     layoutParams.setMargins( 30 , 20 , 30 , 10 ) ;
+                                    layoutParams.width = 0;
+                                    layoutParams.weight = 0.3f;
+                                    layoutParams.height = 400;
                                     main.setBackgroundResource(R.drawable.rounf);
 
                                     ImageView img = new ImageView(MainActivity.this);
-                                    img.setImageResource(R.drawable.lion);
+                                    if("lion".equals(document.getData().get("Animal"))) {
+                                        img.setImageResource(R.drawable.lon);
+                                    } else if ("tiger".equals(document.getData().get("Animal"))) {
+                                        img.setImageResource(R.drawable.tgr);
+                                    }
                                     img.setPadding(10,10,10,10);
                                     main.addView(img, layoutParams);
 
+                                    LinearLayout.LayoutParams lp =  new LinearLayout.LayoutParams(LinearLayout.LayoutParams. WRAP_CONTENT ,  LinearLayout.LayoutParams. WRAP_CONTENT ) ;
+                                    lp.setMargins( 30 , 20 , 30 , 10 ) ;
+                                    lp.width = 0;
+                                    lp.height = 400;
+                                    lp.weight = 0.35f;
                                     TextView name = new TextView(MainActivity.this);
                                     name.setText("Name : " + document.getData().get("Animal").toString());
-                                    main.addView(name,layoutParams);
+                                    main.addView(name,lp);
 
 
 
                                     TextView assurity = new TextView(MainActivity.this);
                                     assurity.setText("Assurity : " + document.getData().get("Assurity").toString());
-                                    main.addView(assurity,layoutParams);
+                                    main.addView(assurity,lp);
 
                                     threat_screen.addView(main, ll);
                                 }else{

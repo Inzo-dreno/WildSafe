@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:layout_weight="0.1"
     android:background="@drawable/background"
+    android:backgroundTintMode="add"
     android:orientation="vertical"
     android:padding="10dp"
     android:textAlignment="viewStart"
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +46,7 @@
                 android:layout_weight="0.5"
                 android:contentDescription="@string/logo"
                 android:foregroundGravity="right"
-                app:srcCompat="@drawable/team"
+                app:srcCompat="@drawable/tem"
                 tools:ignore="NestedWeights,RtlHardcoded" />
 
             <TextView
@@ -52,11 +54,13 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="0.7"
+                android:fontFamily="@font/rajdhani_bold"
                 android:foregroundGravity="center"
                 android:gravity="center_vertical"
                 android:text="@string/beast_n_alert"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="48sp"
                 tools:ignore="RtlHardcoded" />
 
         </LinearLayout>
@@ -71,10 +75,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
+            android:fontFamily="@font/poppins_bold"
             android:gravity="center"
             android:text="@string/threats"
             android:textAlignment="center"
-            android:textColor="#9E9E9E"
+            android:textColor="@color/white"
             android:textSize="34sp" />
 
         <Spinner
@@ -87,13 +92,13 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.05" />
+            android:layout_weight="0.1" />
 
         <ScrollView
             android:id="@+id/AllThreats"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5"
+            android:layout_weight="0.46"
             android:contentDescription="@string/allthreats">
 
         </ScrollView>
@@ -116,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/rounf"
+                android:background="@color/design_default_color_error"
                 android:text="Home"
                 tools:ignore="NestedWeights" />
 
@@ -128,6 +133,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounf"
+                android:backgroundTint="#FF5722"
                 android:text="About" />
 
             <Button
@@ -163,8 +169,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
-            android:orientation="horizontal"
-            android:weightSum="1.2">
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="0dp"
@@ -173,7 +178,7 @@
                 android:layout_weight="0.5"
                 android:contentDescription="@string/logo"
                 android:foregroundGravity="right"
-                app:srcCompat="@drawable/team"
+                app:srcCompat="@drawable/tem"
                 tools:ignore="NestedWeights,RtlHardcoded" />
 
             <TextView
@@ -181,11 +186,13 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="0.7"
+                android:fontFamily="@font/rajdhani_bold"
                 android:foregroundGravity="center"
                 android:gravity="center_vertical"
                 android:text="@string/beast_n_alert"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="48sp"
                 tools:ignore="RtlHardcoded" />
 
         </LinearLayout>
@@ -200,7 +207,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
-            app:srcCompat="@drawable/team" />
+            app:srcCompat="@drawable/tem" />
 
         <Space
             android:layout_width="match_parent"
@@ -211,17 +218,18 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.3"
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="@string/description"
             android:textAlignment="center"
-            android:textColor="#CACACA" />
+            android:textColor="#CACACA"
+            android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2" />
+            android:layout_weight="0.1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -236,7 +244,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/rounf"
+                android:background="#cccccc"
+                android:backgroundTint="#7E7878"
                 android:text="Home"
                 tools:ignore="NestedWeights" />
 
@@ -268,7 +277,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -283,8 +291,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
-            android:orientation="horizontal"
-            android:weightSum="1.2">
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="0dp"
@@ -293,7 +300,7 @@
                 android:layout_weight="0.5"
                 android:contentDescription="@string/logo"
                 android:foregroundGravity="right"
-                app:srcCompat="@drawable/team"
+                app:srcCompat="@drawable/tem"
                 tools:ignore="NestedWeights,RtlHardcoded" />
 
             <TextView
@@ -301,11 +308,13 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="0.7"
+                android:fontFamily="@font/rajdhani_bold"
                 android:foregroundGravity="center"
                 android:gravity="center_vertical"
                 android:text="@string/beast_n_alert"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="48sp"
                 tools:ignore="RtlHardcoded" />
 
         </LinearLayout>
@@ -320,11 +329,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
+            android:fontFamily="@font/rajdhani_bold"
             android:gravity="center"
             android:text="@string/contacts"
             android:textAlignment="center"
-            android:textColor="#9E9E9E"
-            android:textSize="34sp" />
+            android:textColor="#DDDDDD"
+            android:textSize="50sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -358,8 +368,9 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.5"
                     android:gravity="center_vertical"
-                    android:text="wildlifewatchers.wildsafe@gmail.com"
-                    android:textColor="#9E9E9E" />
+                    android:text="wildwatchers.wildsafe@outlook.com"
+                    android:textColor="#9E9E9E"
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -387,6 +398,14 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="Found a threat? \nREPORT NOW"
+            android:textSize="30sp" />
 
         <Space
             android:layout_width="match_parent"
@@ -434,6 +453,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/rounf"
+                android:shadowColor="#1E1A1A"
                 android:text="Contact"
                 android:textColor="#B388FF" />
 
