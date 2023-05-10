@@ -207,7 +207,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
                                     TextView assurity = new TextView(MainActivity.this);
-                                    assurity.setText("Assurity : " + document.getData().get("Assurity").toString());
+                                    if(!"User-Reported".equals(document.getData().get("Threat level"))) {
+                                        assurity.setText("Assurity : " + document.getData().get("Assurity").toString());
+                                    }else{
+                                        assurity.setText("Assurity : " + "User Reported");
+                                    }
                                     main.addView(assurity,lp);
 
                                     threat_screen.addView(main, ll);
