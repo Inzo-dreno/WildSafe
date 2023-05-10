@@ -116,6 +116,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
+        findViewById(R.id.report).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Coming Soon....", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
 
 
 
