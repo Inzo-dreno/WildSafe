@@ -350,7 +350,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
                     android:gravity="center_vertical"
-                    android:text="TextView"
+                    android:text="wildlifewatchers.wildsafe@gmail.com"
                     android:textColor="#9E9E9E" />
             </LinearLayout>
 
@@ -374,7 +374,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
-                    android:text="TextView"
+                    android:text="+91 000-0000-000"
                     android:textColor="#9E9E9E" />
             </LinearLayout>
 
