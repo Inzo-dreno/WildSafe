@@ -262,7 +262,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                                     if(checkBox.isChecked()) {
                                         threat_screen.addView(main, ll);
-                                        //total_docs_for_location += 1;
+
+
+                                        if(LocalTime.now().getHour() - Integer.parseInt(document.getData().get("Hour").toString()) < 5 && LocalDate.now().toString().equals(document.getData().get("Date").toString())) {
+                                            total_docs_for_location += 1;
+                                        }
+
                                     } else if (LocalTime.now().getHour() - Integer.parseInt(document.getData().get("Hour").toString()) < 5 && LocalDate.now().toString().equals(document.getData().get("Date").toString())) {
                                         threat_screen.addView(main, ll);
                                         total_docs_for_location += 1;
