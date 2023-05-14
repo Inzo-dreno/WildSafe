@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shape xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" tools:ignore="MissingDefaultResource">
-    <solid android:color="@color/white"/>
-    <corners android:radius="100px"/>
-    <padding android:top="100mm" />
+    <solid android:color="#aaaaaa"/>
 </shape>

@@ -1,12 +1,14 @@
 package com.example.beastalert;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -26,7 +28,12 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.w3c.dom.Text;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    CheckBox checkBox;
     DisplayMetrics window = new DisplayMetrics();
     ArrayAdapter locs;
     LinearLayout threat_screen;
@@ -37,6 +44,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        checkBox = findViewById(R.id.cbx);
+
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reiterateData();
+            }
+        });
+        LinearLayout plchldr = findViewById(R.id.plcdhr);
+        plchldr.setVisibility(View.VISIBLE);
+
 
         homePage = findViewById(R.id.homePage);
         homePage.setVisibility(View.VISIBLE);
@@ -80,8 +100,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             }
         });
-
-
 
         Button atc = findViewById(R.id.atc);
         atc.setOnClickListener(new View.OnClickListener() {
@@ -155,7 +173,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
     int width = window.widthPixels;
     int height = window.heightPixels;
-
     public void reiterateData(){
 
         width = window.widthPixels;
@@ -176,7 +193,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             int total_docs_for_location = 0;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 if(loc.equals(document.getData().get("Area").toString())) {
-                                    total_docs_for_location += 1;
                                     LinearLayout.LayoutParams ll = new LinearLayout.LayoutParams(
                                             LinearLayout.LayoutParams. MATCH_PARENT ,
                                             LinearLayout.LayoutParams. WRAP_CONTENT ) ;
@@ -208,9 +224,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     lp.width = 0;
                                     lp.height = 400;
                                     lp.weight = 0.35f;
+
+
                                     TextView name = new TextView(MainActivity.this);
                                     name.setText("Name : " + document.getData().get("Animal").toString());
-                                    main.addView(name,lp);
+
 
 
 
@@ -220,17 +238,49 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     }else{
                                         assurity.setText("Assurity : " + "User Reported");
                                     }
-                                    main.addView(assurity,lp);
+                                    TextView Time = new TextView(MainActivity.this);
+                                    Integer mins = (int)(Math.random() * 58);
+                                    Time.setText("Time : " + document.getData().get("Hour").toString() + " : " + mins);
 
-                                    threat_screen.addView(main, ll);
+                                    TextView date = new TextView(MainActivity.this);
+                                    date.setText("Date : " + document.getData().get("Date").toString());
+
+                                    TextView space = new TextView(MainActivity.this);
+                                    space.setText("   ");
+
+
+                                    LinearLayout dataLy = new LinearLayout(MainActivity.this);
+                                    dataLy.setOrientation(LinearLayout.VERTICAL);
+                                    dataLy.addView(space);
+                                    dataLy.addView(name);
+                                    dataLy.addView(assurity);
+                                    dataLy.addView(Time);
+                                    dataLy.addView(date);
+
+                                    main.addView(dataLy);
+
+
+                                    if(checkBox.isChecked()) {
+                                        threat_screen.addView(main, ll);
+                                        //total_docs_for_location += 1;
+                                    } else if (LocalTime.now().getHour() - Integer.parseInt(document.getData().get("Hour").toString()) < 5 && LocalDate.now().toString().equals(document.getData().get("Date").toString())) {
+                                        threat_screen.addView(main, ll);
+                                        total_docs_for_location += 1;
+
+                                    }
+
+
                                 }else{
-                                    //Toast.makeText(getApplicationContext(),document.getData().toString(),Toast.LENGTH_LONG).show();
+                                    //Toast.makeText(getApplicationContext(),Boolean.toString(checkBox.isChecked()),Toast.LENGTH_LONG).show();
                                 }
                             }
                             if(total_docs_for_location < 1){
                                 findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.safebg);
                                 TextView stat = findViewById(R.id.status);
                                 stat.setText("You Are Safe");
+                                TextView txtt = new TextView(MainActivity.this);
+                                txtt.setText("If you Detect a threat nearby, please REPORT it.");
+                                threat_screen.addView(txtt);
                             }else{
                                 findViewById(R.id.mainScreen).setBackgroundResource(R.drawable.dangerbg);
                                 TextView stat = findViewById(R.id.status);
@@ -241,6 +291,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         }
                     }
                 });
+        LinearLayout plchldr = findViewById(R.id.plcdhr);
+        plchldr.setVisibility(View.GONE);
+
     }
 
     @Override

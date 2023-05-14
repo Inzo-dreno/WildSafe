@@ -7,11 +7,11 @@
     android:layout_height="match_parent"
     android:layout_weight="0.1"
     android:background="@drawable/background"
-    android:backgroundTintMode="add"
+    android:backgroundTintMode="src_over"
     android:orientation="vertical"
     android:padding="10dp"
-    android:textAlignment="viewStart"
-    android:textDirection="ltr"
+    android:textAlignment="gravity"
+    android:textDirection="inherit"
     android:visibility="visible"
     tools:context=".MainActivity"
     tools:visibility="visible">
@@ -20,18 +20,15 @@
     <LinearLayout
         android:id="@+id/homePage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.05" />
+            android:layout_weight="0.1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,7 +65,7 @@
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.05" />
+            android:layout_weight="0.005" />
 
         <TextView
             android:id="@+id/status"
@@ -98,15 +95,28 @@
             android:id="@+id/AllThreats"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.46"
+            android:layout_weight="0.4"
             android:contentDescription="@string/allthreats">
 
         </ScrollView>
 
-        <Space
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/cbx"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.05" />
+            android:layout_gravity="center"
+            android:layout_weight="0.00002"
+            android:background="#DCEDDE"
+            android:backgroundTintMode="src_atop"
+            android:fontFamily="@font/corben"
+            android:foregroundGravity="center"
+            android:padding="5dp"
+            android:text="Past Threats"
+            android:textColor="#3D5AFE"
+            android:textColorHighlight="#03A9F4"
+            android:textColorHint="#E67C7C"
+            android:textColorLink="#7C2525"
+            android:textSize="30sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -123,6 +133,7 @@
                 android:layout_weight="1"
                 android:background="@color/design_default_color_error"
                 android:text="Home"
+                android:textColor="#6750A3"
                 tools:ignore="NestedWeights" />
 
             <Button
@@ -277,6 +288,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -459,6 +471,37 @@
 
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/plcdhr"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/tem" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
